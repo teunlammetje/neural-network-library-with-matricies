@@ -1,5 +1,5 @@
 class matrix:
-    def __init__(self,rowcount,colcount, initnum = 0, randomize = False,randommin = 0,randommax = 0,debugMode = False):
+    def __init__(self,rowcount,colcount, initnum = 0, randomize = False,randommin = 0,randommax = 1,debugMode = False):
         self.rowcount = rowcount
         self.colcount = colcount
         self.data = []
@@ -172,11 +172,7 @@ class matrix:
                 for i in range(self.rowcount):
                     for j in range(other.colcount):
                         out.data[i][j] = 0
-                        for k in range(self.colcount):
-                        
-                            self.data[i][k] 
-                            other.data[k][j]
-                            print(k)
+                        for k in range(other.rowcount):
                             out.data[i][j] += self.data[i][k] * other.data[k][j]
                 if self.debugMode or other.debugMode:
                     print("debug message: output matix after matrix multiplication:")
