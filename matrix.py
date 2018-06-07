@@ -148,8 +148,8 @@ class matrix:
                     self.printmatrix()
                     print("")
     def matrix_multi(self,other):
-            if self.rowcount != other.colcount:
-                print("error: can't matrix multiply matricies of wich rows of matrix 1 don't match up with cols of matrix 2:")
+            if self.colcount != other.rowcount:
+                print("error: can't matrix multiply matricies of wich cols of matrix 1 don't match up with rows of matrix 2:")
                 print("matrix 1:")
                 self.printmatrix()
                 print("")
@@ -181,5 +181,26 @@ class matrix:
                     out.printmatrix()
                     print("")
                 return out
-                    
+            
+    def transpose(self):
+        if self.debugMode:
+                    print("debug message: marix before being transposed:")
+                    print("")
+                    print("matrix 1:")
+                    self.printmatrix()
+                    print("")
+        temp = matrix(self.colcount,self.rowcount)
+        
+        for i in range(self.rowcount):
+            for j in range(self.colcount):
+                temp.data[j][i] = self.data[i][j]
+        self.data = temp.data
+        self.rowcount = temp.rowcount
+        self.colcount = temp.colcount
+        if self.debugMode:
+            print("debug message: marix after being transposed:")
+            print("")
+            print("matrix 1:")
+            self.printmatrix()
+            print("")
                         
